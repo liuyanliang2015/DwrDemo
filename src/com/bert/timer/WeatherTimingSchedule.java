@@ -3,8 +3,10 @@ package com.bert.timer;
 import com.bert.common.util.RandomUtil;
 import com.bert.dwr.MessagePusher;
 
+/**
+ * 天气和人民币汇率定时任务(每天触发一次)
+ */
 public class WeatherTimingSchedule {
-	 //定时执行的方法
     public void execute(){
     	try {
     		 MessagePusher push = new MessagePusher();

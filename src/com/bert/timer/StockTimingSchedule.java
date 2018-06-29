@@ -3,8 +3,10 @@ package com.bert.timer;
 import com.bert.common.util.RandomUtil;
 import com.bert.dwr.MessagePusher;
 
+/**
+ * 证券定时任务(根据每日调用接口次数限制，定义定时频率)
+ */
 public class StockTimingSchedule {
-	 //定时执行的方法
     public void execute(){
     	try {
     		 	MessagePusher push = new MessagePusher();
@@ -16,12 +18,9 @@ public class StockTimingSchedule {
 	    	        push.sendMessage("0", "道琼斯:"+RandomUtil.getRandomString(16));
 	    	        push.sendMessage("0", "纳斯达克:"+RandomUtil.getRandomString(16));
     		 	}
-    	       
 		} catch (Exception e) {
 			e.printStackTrace();
-			
 		}
-       
         
     }
 }

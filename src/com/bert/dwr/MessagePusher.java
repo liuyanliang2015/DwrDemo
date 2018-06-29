@@ -32,6 +32,7 @@ public class MessagePusher {
 					if (userId == null) {
 						return false;
 					} else if ("0".equalsIgnoreCase(id)) {
+						//如果userid = 0，全部匹配，也就是广播模式
 						return true;
 					} else {
 						return userId.equalsIgnoreCase(id);
@@ -42,8 +43,10 @@ public class MessagePusher {
 				public void run() {
 					//对应页面调用的方法名称及参数
 				    script.appendCall("showMessage", msg);
+				    //得到当前浏览器下所有ScriptSession
 					Collection<ScriptSession> sessions = Browser.getTargetSessions();
 					for (ScriptSession scriptSession : sessions) {
+						//添加待执行的脚本到dwr excution池中
 						scriptSession.addScript(script);
 					}
 				}
