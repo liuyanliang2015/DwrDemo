@@ -1,5 +1,13 @@
 ## DWR是什么？
-Dwr 是一个 Java 开源库，帮助你实现Ajax网站。它可以让你在浏览器中的Javascript代码调用Web服务器上的Java，就像在Java代码就在浏览器中一样。
+Dwr 是一个 Java 开源库，帮助你实现Ajax网站。
+
+DWR它可以让你在浏览器中的Javascript代码调用Web服务器上的Java，就像在Java代码就在浏览器中一样。
+
+DWR的宣传语是 “ Easy Ajax For Java”，但是它原本不止如此的。
+
+Ajax有一个很大的缺陷就是“无法满足传统桌面系统的需求——服务器端需要向客户端主动发送消息”。
+
+
 
 Dwr 主要包括两部分：
 在服务器上运行的 Servlet 来处理请求并把结果返回浏览器。
@@ -47,6 +55,25 @@ dwr会自动生成engine.js、util.js、interface/MessagePusher.js等虚拟文�
 1、第一次访问一个页面，就会创建一个新的HttpSession,之后再访问的时候，就会保持当前的Session,即使是刷新，也能保持当前的HttpSession。
 
 2、ScriptSession不同，第一次访问，会创建一个ScriptSession,但是，如果你刷新，就会创建一个新的ScriptSession.
+
+3、代码入侵问题
+
+因为dwr.xml，使得前端可以直接访问java类里面的public方法，public变量。
+
+所以累中的变量尽量不要是public。我们也可以通过下面的方式，限制方法的调用：
+
+
+<dwr>
+  <allow>
+    <create creator="new" javascript="Demo" scope="application">
+      <include method="test"/>
+      <param name="class" value="cn.smileyan.cy.Cyservice"/>
+    </create>
+  </allow>
+</dwr>
+
+
+<include>标签，也就是说外界访问的时候，这个类中所有方法只能访问这个test方法
 
 
 
