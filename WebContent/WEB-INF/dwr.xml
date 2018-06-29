@@ -3,7 +3,9 @@
 
 <dwr>
   <allow>
+    <!-- wr.xml文件则负责定义Java类和JavaScript对象之间的对应关系。 -->
     <!-- javascript对应前台引入的interface/MessagePusher.js文件名称 -->
+    <!-- create定义如何将一个Java类转换成一个JavaScript对象 -->
   	<create creator="new" javascript="MessagePusher"> 
          <param name="class" value="com.bert.dwr.MessagePusher"/> 
     </create> 

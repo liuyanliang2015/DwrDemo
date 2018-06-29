@@ -7,8 +7,11 @@
 <title>大屏数据</title>
 <!-- 路径从web.xml中配置,具体文件不需要特意引入真实的js，项目自动生成 -->
 <!-- DwrDemo自动生成,名称对应dwr中配置的create:javascript,路径对应web.xml中配置的url-pattern -->
+<!-- 导入DWR引擎的核心JavaScript代码库 -->
 <script type="text/javascript" src='<%=request.getContextPath()  %>/dwr/engine.js'></script>
+<!-- 导入开发者为本应用编写的JavaScript代码库 -->
 <script type="text/javascript" src='<%=request.getContextPath()  %>/dwr/util.js'></script>
+<!-- 导入DWR为MessagePusher对象动态生成的JavaScript代码库 -->
 <script type="text/javascript" src='<%=request.getContextPath()  %>/dwr/interface/MessagePusher.js'></script>
 <script type="text/javascript" src='<%=request.getContextPath() %>/js/jquery.js'></script>
 <script type="text/javascript">

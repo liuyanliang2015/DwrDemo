@@ -25,8 +25,10 @@ import com.bert.dwr.MessagePusher;
 @RequestMapping("/led")
 public class DwrWebController {
 	
+	
+	
 	/**
-	 * 跳转到对应的测试页面
+	 * 跳转到Led显示页面
 	 * @param request
 	 * @param response
 	 * @return

@@ -30,6 +30,7 @@
 	<!-- begin配置DWR -->
 	<servlet>
 	    <servlet-name>dwr-invoker</servlet-name>
+	    <!-- DWR的核心Servlet处理器 -->
 	    <servlet-class>org.directwebremoting.servlet.DwrServlet</servlet-class>
 	    <init-param>  
 	      <param-name >org.directwebremoting.extend.ScriptSessionManager </param-name>  
