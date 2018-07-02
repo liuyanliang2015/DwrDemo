@@ -60,7 +60,7 @@
   </servlet>
   <servlet-mapping>
 	    <servlet-name>dwr-invoker</servlet-name>
-	    <!-- 对应前端jsp中引用js的路径 -->
+	    <!-- 对应前端jsp中引用js 的路径 -->
 	    <url-pattern>/dwr/*</url-pattern>
   </servlet-mapping>
   <!--end配置DWR -->
