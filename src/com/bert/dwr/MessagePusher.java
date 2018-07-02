@@ -14,19 +14,6 @@ import org.springframework.util.StringUtils;
  */
 public class MessagePusher {
 	
-	public void learning(String name){
-		 ScriptBuffer script = new ScriptBuffer();
-		//对应页面调用的方法名称及参数
-	    script.appendCall("showMessage", name+"开始你的学习!");
-	    //得到当前浏览器下所有ScriptSession
-		Collection<ScriptSession> sessions = Browser.getTargetSessions();
-		for (ScriptSession scriptSession : sessions) {
-			//添加待执行的脚本到dwr excution池中
-			scriptSession.addScript(script);
-		}
-		
-	}
-	
 	
 	public void onPageLoad(String userId) {
         if (!StringUtils.isEmpty(userId)){
@@ -68,6 +55,20 @@ public class MessagePusher {
 			});
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+		
+	}
+	
+	
+	public void learning(String name){
+		 ScriptBuffer script = new ScriptBuffer();
+		//对应页面调用的方法名称及参数
+	    script.appendCall("showMessage", name+"开始你的学习!");
+	    //得到当前浏览器下所有ScriptSession
+		Collection<ScriptSession> sessions = Browser.getTargetSessions();
+		for (ScriptSession scriptSession : sessions) {
+			//添加待执行的脚本到dwr excution池中
+			scriptSession.addScript(script);
 		}
 		
 	}
